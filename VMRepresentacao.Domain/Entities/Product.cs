@@ -1,7 +1,4 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
-
-namespace VMRepresentacao.Domain.Entities
+﻿namespace VMRepresentacao.Domain.Entities
 {
     public class Product : BaseEntity
     {
@@ -14,9 +11,6 @@ namespace VMRepresentacao.Domain.Entities
             Name = name;
             Price = price;
             Description = description;
-
-            Active = true;
-            DateRegister = DateTime.Now;
         }
         #endregion
 
@@ -27,10 +21,6 @@ namespace VMRepresentacao.Domain.Entities
         public double Price { get; private set; }
 
         public string Description { get; private set; }
-
-        public DateTime DateRegister { get; private set; }
-
-        public bool Active { get; private set; }
         #endregion
     }
 }

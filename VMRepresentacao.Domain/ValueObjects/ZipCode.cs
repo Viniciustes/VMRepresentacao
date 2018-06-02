@@ -3,10 +3,10 @@ using VMRepresentacao.Domain.Messages;
 
 namespace VMRepresentacao.Domain.ValueObjects
 {
-    public class CNPJ
+    public class ZipCode
     {
         #region Constructors
-        public CNPJ(string number)
+        public ZipCode(string number)
         {
             Number = number;
 
@@ -21,8 +21,8 @@ namespace VMRepresentacao.Domain.ValueObjects
         #region Methods
         private void Validations()
         {
-            if(Number.Length != 14)
-                throw new ArgumentException(GeneralMessages.MSG0002);
+            if (Number.Length != 8)
+                throw new Exception(GeneralMessages.MSG0004);
         }
         #endregion
     }

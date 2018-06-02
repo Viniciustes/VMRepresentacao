@@ -13,15 +13,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ApplicationService", "Appli
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{9B65725E-6A9E-45E2-9062-963F121ED554}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VMRepresentacao.Infrastructure", "VMRepresentacao.Infrastructure\VMRepresentacao.Infrastructure.csproj", "{B7DE9C33-3425-4A0F-8214-4A0C9BE2DD96}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VMRepresentacao.Infrastructure", "VMRepresentacao.Infrastructure\VMRepresentacao.Infrastructure.csproj", "{B7DE9C33-3425-4A0F-8214-4A0C9BE2DD96}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VMRepresentacao.Domain", "VMRepresentacao.Domain\VMRepresentacao.Domain.csproj", "{B68B3448-2AC2-4451-A105-868927285497}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VMRepresentacao.Domain", "VMRepresentacao.Domain\VMRepresentacao.Domain.csproj", "{B68B3448-2AC2-4451-A105-868927285497}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VMRepresentacao.ApplicationService", "VMRepresentacao.ApplicationService\VMRepresentacao.ApplicationService.csproj", "{4E641644-9B08-4A9D-9228-0AE5F0F3EDFB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VMRepresentacao.ApplicationService", "VMRepresentacao.ApplicationService\VMRepresentacao.ApplicationService.csproj", "{4E641644-9B08-4A9D-9228-0AE5F0F3EDFB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VMRepresentacao.Web", "VMRepresentacao.Web\VMRepresentacao.Web.csproj", "{86B44B16-E1C0-491A-8F9C-3DB5CDA7E186}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VMRepresentacao.Web", "VMRepresentacao.Web\VMRepresentacao.Web.csproj", "{86B44B16-E1C0-491A-8F9C-3DB5CDA7E186}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VMRepresentacao.Test", "VMRepresentacao.Test\VMRepresentacao.Test.csproj", "{7C8873A7-CBBA-402F-BB14-410712CD2CB9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VMRepresentacao.Test", "VMRepresentacao.Test\VMRepresentacao.Test.csproj", "{7C8873A7-CBBA-402F-BB14-410712CD2CB9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

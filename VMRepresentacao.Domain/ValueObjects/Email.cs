@@ -1,4 +1,5 @@
 ﻿using System;
+using VMRepresentacao.Domain.Messages;
 
 namespace VMRepresentacao.Domain.ValueObjects
 {
@@ -21,7 +22,7 @@ namespace VMRepresentacao.Domain.ValueObjects
         private void Validations()
         {
             if (string.IsNullOrEmpty(Address))
-                throw new ArgumentException("Email não pode ficar em branco");
+                throw new ArgumentException(GeneralMessages.MSG0003);
         }
         #endregion
     }

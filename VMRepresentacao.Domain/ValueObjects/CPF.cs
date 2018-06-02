@@ -1,4 +1,5 @@
 ﻿using System;
+using VMRepresentacao.Domain.Messages;
 
 namespace VMRepresentacao.Domain.ValueObjects
 {
@@ -21,7 +22,7 @@ namespace VMRepresentacao.Domain.ValueObjects
         private void Validations()
         {
             if(!Validate(Number))
-                throw new ArgumentException("CPF inválido");
+                throw new ArgumentException(GeneralMessages.MSG0001);
         }
 
         private bool Validate(string number)
