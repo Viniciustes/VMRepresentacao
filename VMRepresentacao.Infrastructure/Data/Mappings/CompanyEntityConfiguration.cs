@@ -12,7 +12,9 @@ namespace VMRepresentacao.Infrastructure.Data.Mappings
 
             builder.HasKey(x => x.Id);
 
-            builder.HasOne(x => x.Address).WithOne(y => y.Company);
+            builder.HasOne(x => x.Address).WithOne(y => y.Company).OnDelete(DeleteBehavior.Cascade); 
+
+            builder.HasMany(x => x.Telephones).WithOne(y => y.Company);
 
             // For Value Object
             builder.OwnsOne(x => x.Email, e => { e.Property(p => p.Address).HasColumnName("Email"); });

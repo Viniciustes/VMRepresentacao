@@ -12,6 +12,8 @@ namespace VMRepresentacao.Infrastructure.Data.Mappings
 
             builder.HasKey(x => x.Id);
 
+            builder.HasOne(x => x.Company).WithOne(y => y.c)
+
             // For Value Object
             builder.OwnsOne(x => x.ZipCode,
                e =>

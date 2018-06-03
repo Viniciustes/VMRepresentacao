@@ -34,13 +34,17 @@ namespace VMRepresentacao.Domain.Entities
 
         public int Number { get; private set; }
 
+        /// <summary>
+        /// Referente ao bairro
+        /// </summary>
         public string District { get; private set; }
 
         public TypeOfAddress TypeOfAddress { get; private set; }
 
         public string Reference { get; private set; }
 
-        public Company Company { get; private set; }
+        public virtual Company Company { get; private set; }
+        public virtual Customer Customer { get; private set; }
         #endregion
     }
 }

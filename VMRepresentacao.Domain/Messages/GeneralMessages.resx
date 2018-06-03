@@ -133,4 +133,8 @@
     <value>CEP Inválido</value>
     <comment>Mensagem para CEP inválido</comment>
   </data>
+  <data name="MSG0005" xml:space="preserve">
+    <value>DDD Inválido</value>
+    <comment>Mensagem para DDD inválido</comment>
+  </data>
 </root>

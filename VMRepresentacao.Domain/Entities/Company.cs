@@ -1,4 +1,6 @@
-﻿using VMRepresentacao.Domain.Enumerators;
+﻿using System.Collections.Generic;
+using System.Linq;
+using VMRepresentacao.Domain.Enumerators;
 using VMRepresentacao.Domain.ValueObjects;
 
 namespace VMRepresentacao.Domain.Entities
@@ -8,17 +10,21 @@ namespace VMRepresentacao.Domain.Entities
         #region Constructors
         private Company() { }
 
-        public Company(string name, CNPJ cNPJ, TypeOfSubsidiary typeOfSubsidiary, Email email, Address address)
+        public Company(string name, CNPJ cNPJ, TypeOfSubsidiary typeOfSubsidiary, Email email, Address address, IList<Telephone> telephones)
         {
             Name = name;
             CNPJ = cNPJ;
             TypeOfSubsidiary = typeOfSubsidiary;
             Email = email;
             Address = address;
+
+            _telephones = telephones;
         }
         #endregion
 
         #region Attributes
+        private readonly IList<Telephone> _telephones;
+
         public string Name { get; private set; }
 
         public CNPJ CNPJ { get; private set; }
@@ -29,6 +35,8 @@ namespace VMRepresentacao.Domain.Entities
 
         public int AddressId { get; private set; }
         public Address Address { get; private set; }
+
+        public IReadOnlyCollection<Telephone> Telephones => _telephones.ToArray();
         #endregion
     }
 }

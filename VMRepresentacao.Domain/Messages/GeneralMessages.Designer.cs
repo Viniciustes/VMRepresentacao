@@ -95,5 +95,14 @@ namespace VMRepresentacao.Domain.Messages {
                 return ResourceManager.GetString("MSG0004", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DDD Inválido.
+        /// </summary>
+        public static string MSG0005 {
+            get {
+                return ResourceManager.GetString("MSG0005", resourceCulture);
+            }
+        }
     }
 }
