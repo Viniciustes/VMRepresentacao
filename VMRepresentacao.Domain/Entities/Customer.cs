@@ -33,7 +33,7 @@ namespace VMRepresentacao.Domain.Entities
         public CNPJ CNPJ { get; private set; }
 
         public int AddressId { get; private set; }
-        public Address Address { get; private set; }
+        public virtual Address Address { get; private set; }
 
         public IReadOnlyCollection<Telephone> Telephones => _telephones.ToArray();
         #endregion

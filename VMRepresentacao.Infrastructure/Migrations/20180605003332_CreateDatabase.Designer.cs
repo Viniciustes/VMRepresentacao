@@ -10,8 +10,8 @@ using VMRepresentacao.Infrastructure.Data.Contexts;
 namespace VMRepresentacao.Infrastructure.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20180602135010_ModificationDataBase")]
-    partial class ModificationDataBase
+    [Migration("20180605003332_CreateDatabase")]
+    partial class CreateDatabase
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -82,6 +82,8 @@ namespace VMRepresentacao.Infrastructure.Migrations
 
                     b.Property<bool>("Active");
 
+                    b.Property<int>("AddressId");
+
                     b.Property<DateTime>("DateRegister");
 
                     b.Property<string>("Name")
@@ -90,6 +92,9 @@ namespace VMRepresentacao.Infrastructure.Migrations
                         .HasMaxLength(60);
 
                     b.HasKey("Id");
+
+                    b.HasIndex("AddressId")
+                        .IsUnique();
 
                     b.ToTable("Customer");
                 });
@@ -115,6 +120,35 @@ namespace VMRepresentacao.Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Product");
+                });
+
+            modelBuilder.Entity("VMRepresentacao.Domain.Entities.Telephone", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<bool>("Active");
+
+                    b.Property<int?>("CompanyId");
+
+                    b.Property<int?>("CustomerId");
+
+                    b.Property<int>("DDD");
+
+                    b.Property<DateTime>("DateRegister");
+
+                    b.Property<string>("Phone");
+
+                    b.Property<int>("TypeOfTelephone");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CompanyId");
+
+                    b.HasIndex("CustomerId");
+
+                    b.ToTable("Telephone");
                 });
 
             modelBuilder.Entity("VMRepresentacao.Domain.Entities.Address", b =>
@@ -183,6 +217,11 @@ namespace VMRepresentacao.Infrastructure.Migrations
 
             modelBuilder.Entity("VMRepresentacao.Domain.Entities.Customer", b =>
                 {
+                    b.HasOne("VMRepresentacao.Domain.Entities.Address", "Address")
+                        .WithOne("Customer")
+                        .HasForeignKey("VMRepresentacao.Domain.Entities.Customer", "AddressId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
                     b.OwnsOne("VMRepresentacao.Domain.ValueObjects.CPF", "CPF", b1 =>
                         {
                             b1.Property<int?>("CustomerId")
@@ -235,6 +274,19 @@ namespace VMRepresentacao.Infrastructure.Migrations
                                 .HasForeignKey("VMRepresentacao.Domain.ValueObjects.Email", "CustomerId")
                                 .OnDelete(DeleteBehavior.Cascade);
                         });
+                });
+
+            modelBuilder.Entity("VMRepresentacao.Domain.Entities.Telephone", b =>
+                {
+                    b.HasOne("VMRepresentacao.Domain.Entities.Company", "Company")
+                        .WithMany("Telephones")
+                        .HasForeignKey("CompanyId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("VMRepresentacao.Domain.Entities.Customer", "Customer")
+                        .WithMany("Telephones")
+                        .HasForeignKey("CustomerId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }

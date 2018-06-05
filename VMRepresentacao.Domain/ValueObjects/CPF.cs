@@ -1,5 +1,6 @@
 ﻿using System;
 using VMRepresentacao.Domain.Messages;
+using VMRepresentacao.Domain.Services;
 
 namespace VMRepresentacao.Domain.ValueObjects
 {
@@ -21,7 +22,9 @@ namespace VMRepresentacao.Domain.ValueObjects
         #region Methods
         private void Validations()
         {
-            if(!Validate(Number))
+            Number = OnlyNumbersService.OnlyNumbers(Number);
+
+            if (!Validate(Number))
                 throw new ArgumentException(GeneralMessages.MSG0001);
         }
 

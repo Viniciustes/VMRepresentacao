@@ -17,9 +17,7 @@ namespace VMRepresentacao.Infrastructure.Data.Mappings
                 .HasMaxLength(60)
                 .HasColumnName("Name");
 
-            builder.HasOne(x => x.Address).WithOne(y => y.Customer).OnDelete(DeleteBehavior.Cascade);
-
-            builder.HasMany(x => x.Telephones).WithOne(y => y.Customer);
+            builder.HasOne(x => x.Address).WithOne(y => y.Customer);
 
             // For Value Object
             builder.OwnsOne(x => x.Email, e => { e.Property(p => p.Address).HasColumnName("Email"); });

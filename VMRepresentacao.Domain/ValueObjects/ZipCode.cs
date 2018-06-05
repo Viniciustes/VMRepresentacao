@@ -1,5 +1,6 @@
 ﻿using System;
 using VMRepresentacao.Domain.Messages;
+using VMRepresentacao.Domain.Services;
 
 namespace VMRepresentacao.Domain.ValueObjects
 {
@@ -21,6 +22,8 @@ namespace VMRepresentacao.Domain.ValueObjects
         #region Methods
         private void Validations()
         {
+            Number = OnlyNumbersService.OnlyNumbers(Number);
+
             if (Number.Length != 8)
                 throw new Exception(GeneralMessages.MSG0004);
         }

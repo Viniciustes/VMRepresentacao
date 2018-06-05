@@ -128,9 +128,9 @@ namespace VMRepresentacao.Infrastructure.Migrations
 
                     b.Property<bool>("Active");
 
-                    b.Property<int>("CompanyId");
+                    b.Property<int?>("CompanyId");
 
-                    b.Property<int>("CustomerId");
+                    b.Property<int?>("CustomerId");
 
                     b.Property<int>("DDD");
 

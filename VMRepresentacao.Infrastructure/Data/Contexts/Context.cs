@@ -12,6 +12,7 @@ namespace VMRepresentacao.Infrastructure.Data.Contexts
         public DbSet<Product> Products { get; set; }
         public DbSet<Company> Companies { get; set; }
         public DbSet<Customer> Customers { get; set; }
+        public DbSet<Telephone> Telephones { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -19,6 +20,7 @@ namespace VMRepresentacao.Infrastructure.Data.Contexts
             modelBuilder.ApplyConfiguration(new ProductEntityConfiguration());
             modelBuilder.ApplyConfiguration(new CompanyEntityConfiguration());
             modelBuilder.ApplyConfiguration(new CustomerEntityConfiguration());
+            modelBuilder.ApplyConfiguration(new TelephoneEntityConfiguration());
         }
     }
 }
