@@ -6,6 +6,8 @@ namespace VMRepresentacao.ApplicationService.Interfaces
 {
     public interface IProductService
     {
-        Task<IEnumerable<Product>> GetAllActive();
+        Task<IEnumerable<Product>> GetAllActiveAsync();
+        Task<Product> GetByIdAsync(int id);
+        Task<Product> GetByNameAsync(string name);
     }
 }

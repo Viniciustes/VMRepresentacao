@@ -18,7 +18,7 @@ namespace VMRepresentacao.Web.Controllers
         public async Task<IActionResult> Index()
         {
             var viewModel = new List<CustomersViewModel>();
-            var customers = await _customerService.GetAllActive();
+            var customers = await _customerService.GetAllActiveAsync();
 
             foreach (var customer in customers)
             {

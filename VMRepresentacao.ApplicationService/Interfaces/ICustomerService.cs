@@ -6,6 +6,6 @@ namespace VMRepresentacao.ApplicationService.Interfaces
 {
     public interface ICustomerService
     {
-        Task<IEnumerable<Customer>> GetAllActive();
+        Task<IEnumerable<Customer>> GetAllActiveAsync();
     }
 }

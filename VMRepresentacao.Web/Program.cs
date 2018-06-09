@@ -3,6 +3,7 @@ using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using VMRepresentacao.Domain.Messages;
 using VMRepresentacao.Infrastructure.Data;
 using VMRepresentacao.Infrastructure.Data.Contexts;
 
@@ -25,7 +26,7 @@ namespace VMRepresentacao.Web
                 catch (Exception ex)
                 {
                     var logger = services.GetRequiredService<ILogger<Program>>();
-                    logger.LogError(ex, "Ocorreu um erro durante a criação do banco de dados.");
+                    logger.LogError(ex, GeneralMessages.MSG0006);
                 }
             }
             host.Run();

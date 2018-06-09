@@ -2,8 +2,10 @@
 
 namespace VMRepresentacao.Web.ViewModels
 {
-    public class CustomersViewModel : BaseViewModel
+    public class CustomersViewModel
     {
+        public int Id { get; set; }
+
         [Display(Name="Nome do cliente")]
         public string Name { get;  set; }
 

@@ -1,6 +1,8 @@
-﻿namespace VMRepresentacao.Domain.Interfaces.Repositories
+﻿using VMRepresentacao.Domain.Entities;
+
+namespace VMRepresentacao.Domain.Interfaces.Repositories
 {
-    public interface ICompanyRepository
+    public interface ICompanyRepository : IRepository<Company>
     {
     }
 }

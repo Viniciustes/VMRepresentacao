@@ -23,7 +23,7 @@ namespace VMRepresentacao.Infrastructure.Data
             if (context.Companies.Any())
                 return;
 
-            var listCompany = new Company[]
+            var companies = new Company[]
             {
                 new Company("VMRepresentaçoes Matrix Ltda", new CNPJ("27905534000113"), TypeOfSubsidiary.Matrix, new Email("vmrepresentacoes.matriz@gmail.com"), new Address("Avenida João Angelino dos Santos", new ZipCode("57330970"), States.AL, "Lagoa da Canoa", 0, "Centro", TypeOfAddress.Work, "Ao Lado do pão de açucar"), new Telephone[] { new Telephone(21, "555555555", TypeOfTelephone.Message), new Telephone(34, "444444444", TypeOfTelephone.Residential), new Telephone(82, "333333333", TypeOfTelephone.CellPhone), new Telephone(96, "222222222", TypeOfTelephone.Fax) })
 
@@ -34,10 +34,7 @@ namespace VMRepresentacao.Infrastructure.Data
 
             try
             {
-                foreach (var company in listCompany)
-                {
-                    context.Companies.Add(company);
-                }
+                context.AddRange(companies);
                 context.SaveChanges();
             }
             catch (Exception ex)
@@ -66,10 +63,7 @@ namespace VMRepresentacao.Infrastructure.Data
 
             try
             {
-                foreach (var customer in customers)
-                {
-                    context.Customers.Add(customer);
-                }
+                context.AddRange(customers);
                 context.SaveChanges();
             }
             catch (Exception ex)
@@ -93,10 +87,7 @@ namespace VMRepresentacao.Infrastructure.Data
 
             try
             {
-                foreach (var product in products)
-                {
-                    context.Products.Add(product);
-                }
+                context.AddRange(products);
                 context.SaveChanges();
             }
             catch (Exception ex)

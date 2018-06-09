@@ -1,15 +1,13 @@
-﻿using VMRepresentacao.Domain.Interfaces.Repositories;
+﻿using VMRepresentacao.Domain.Entities;
+using VMRepresentacao.Domain.Interfaces.Repositories;
 using VMRepresentacao.Infrastructure.Data.Contexts;
 
 namespace VMRepresentacao.Infrastructure.Data.Repositories
 {
-    public class CompanyRepository : ICompanyRepository
+    public class CompanyRepository : Repository<Company>, ICompanyRepository
     {
-        private readonly Context _context;
-
-        public CompanyRepository(Context context)
+        public CompanyRepository(Context context) : base(context)
         {
-            _context = context;
         }
     }
 }

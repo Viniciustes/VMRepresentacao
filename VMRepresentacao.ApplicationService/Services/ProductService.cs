@@ -3,6 +3,8 @@ using System.Threading.Tasks;
 using VMRepresentacao.ApplicationService.Interfaces;
 using VMRepresentacao.Domain.Entities;
 using VMRepresentacao.Domain.Interfaces.Repositories;
+using VMRepresentacao.Domain.Specifications;
+using VMRepresentacao.Domain.Specifications.ProductsSpecifications;
 
 namespace VMRepresentacao.ApplicationService.Services
 {
@@ -15,9 +17,21 @@ namespace VMRepresentacao.ApplicationService.Services
             _productRepository = productRepository;
         }
 
-        public Task<IEnumerable<Product>> GetAllActive()
+        public async Task<IEnumerable<Product>> GetAllActiveAsync()
         {
-            return _productRepository.GetAllActive();
+            return await _productRepository.GetAllActiveAsync();
+        }
+
+        public async Task<Product> GetByIdAsync(int id)
+        {
+            var specification = new GenericGetByIdSpecification<Product>(id);
+            return await _productRepository.GetBySpecificationAsync(specification);
+        }
+
+        public async Task<Product> GetByNameAsync(string name)
+        {
+            var specification = new ProductGetByNameSpecification(name);
+            return await _productRepository.GetBySpecificationAsync(specification);
         }
     }
 }

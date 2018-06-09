@@ -2,8 +2,10 @@
 
 namespace VMRepresentacao.Web.ViewModels
 {
-    public class ProductsViewModel : BaseViewModel
+    public class ProductsViewModel 
     {
+        public int Id { get; set; }
+
         [Display(Name="Nome do produto")]
         public string Name { get; set; }
 

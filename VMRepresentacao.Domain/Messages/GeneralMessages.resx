@@ -137,4 +137,8 @@
     <value>DDD Inválido</value>
     <comment>Mensagem para DDD inválido</comment>
   </data>
+  <data name="MSG0006" xml:space="preserve">
+    <value>Ocorreu um erro durante a criação do banco de dados.</value>
+    <comment>Mensagem para erro na criação do banco de dados.</comment>
+  </data>
 </root>

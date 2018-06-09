@@ -104,5 +104,14 @@ namespace VMRepresentacao.Domain.Messages {
                 return ResourceManager.GetString("MSG0005", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ocorreu um erro durante a criação do banco de dados..
+        /// </summary>
+        public static string MSG0006 {
+            get {
+                return ResourceManager.GetString("MSG0006", resourceCulture);
+            }
+        }
     }
 }

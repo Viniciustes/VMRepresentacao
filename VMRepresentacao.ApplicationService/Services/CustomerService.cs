@@ -15,9 +15,9 @@ namespace VMRepresentacao.ApplicationService.Services
             _customerRepository = customerRepository;
         }
 
-        public Task<IEnumerable<Customer>> GetAllActive()
+        public async Task<IEnumerable<Customer>> GetAllActiveAsync()
         {
-            return _customerRepository.GetAllActive();
+            return await _customerRepository.GetAllActiveAsync();
         }
     }
 }
