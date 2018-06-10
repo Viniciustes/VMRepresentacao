@@ -8,7 +8,11 @@ namespace VMRepresentacao.Web.AutoMapper
     {
         public DomainProfile()
         {
-            CreateMap<Product, ProductsViewModel>();
+            CreateMap<Product, ProductViewModel>();
+            CreateMap<ProductViewModel, Product>();
+
+            CreateMap<Customer, CustomerViewModel>();
+            CreateMap<CustomerViewModel, Customer>();
         }
     }
 }

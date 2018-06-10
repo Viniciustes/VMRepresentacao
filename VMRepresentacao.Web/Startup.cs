@@ -25,7 +25,7 @@ namespace VMRepresentacao.Web
         {
             services.AddDbContext<Context>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-
+                       
             services.AddScoped<IProductService, ProductService>();
             services.AddScoped<ICustomerService, CustomerService>();
 

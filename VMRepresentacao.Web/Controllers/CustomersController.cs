@@ -1,38 +1,58 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using VMRepresentacao.ApplicationService.Interfaces;
+using VMRepresentacao.Domain.Entities;
 using VMRepresentacao.Web.ViewModels;
 
 namespace VMRepresentacao.Web.Controllers
 {
     public class CustomersController : Controller
     {
+        private readonly IMapper _mapper;
         private readonly ICustomerService _customerService;
 
-        public CustomersController(ICustomerService customerService)
+        public CustomersController(IMapper mapper, ICustomerService customerService)
         {
+            _mapper = mapper;
             _customerService = customerService;
         }
 
         public async Task<IActionResult> Index()
         {
-            var viewModel = new List<CustomersViewModel>();
             var customers = await _customerService.GetAllActiveAsync();
+            var customersViewModel = _mapper.Map<IEnumerable<CustomerViewModel>>(customers);
 
-            foreach (var customer in customers)
+            return View(customersViewModel);
+        }
+
+        public IActionResult Create()
+        {
+            ViewData["Action"] = "Create";
+
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create(CustomerViewModel customerViewModel)
+        {
+            ViewData["Action"] = "Create";
+
+            if (!ModelState.IsValid) return View();
+
+            try
             {
-                viewModel.Add(new CustomersViewModel
-                {
-                    Id = customer.Id,
-                    Name = customer.Name,
-                    CNPJ = customer.CNPJ.Number,
-                    CPF = customer.CPF.Number,
-                    Email = customer.Email.Address
-                });
-            }
+                var customer = _mapper.Map<Customer>(customerViewModel);
+                await _customerService.Create(customer);
 
-            return View(viewModel);
+                return RedirectToAction(nameof(Index));
+            }
+            catch
+            {
+                return View();
+            }
         }
     }
 }

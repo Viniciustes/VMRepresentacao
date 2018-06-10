@@ -6,8 +6,6 @@ namespace VMRepresentacao.Infrastructure.Data.Repositories
 {
     public class ProductRepository : Repository<Product>, IProductRepository
     {
-        public ProductRepository(Context context) : base(context)
-        {
-        }
+        public ProductRepository(Context context) : base(context) { }
     }
 }

@@ -1,13 +1,8 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-using VMRepresentacao.Domain.Entities;
+﻿using VMRepresentacao.Domain.Entities;
 
 namespace VMRepresentacao.ApplicationService.Interfaces
 {
-    public interface IProductService
+    public interface IProductService : IService<Product>
     {
-        Task<IEnumerable<Product>> GetAllActiveAsync();
-        Task<Product> GetByIdAsync(int id);
-        Task<Product> GetByNameAsync(string name);
     }
 }

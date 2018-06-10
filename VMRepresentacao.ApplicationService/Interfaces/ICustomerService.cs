@@ -1,11 +1,8 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-using VMRepresentacao.Domain.Entities;
+﻿using VMRepresentacao.Domain.Entities;
 
 namespace VMRepresentacao.ApplicationService.Interfaces
 {
-    public interface ICustomerService
+    public interface ICustomerService : IService<Customer>
     {
-        Task<IEnumerable<Customer>> GetAllActiveAsync();
     }
 }

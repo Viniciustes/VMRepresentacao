@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using VMRepresentacao.ApplicationService.Interfaces;
+using VMRepresentacao.Domain.Entities;
 using VMRepresentacao.Web.ViewModels;
 
 namespace VMRepresentacao.Web.Controllers
@@ -18,34 +19,38 @@ namespace VMRepresentacao.Web.Controllers
             _productService = productService;
         }
 
-        public async Task<ActionResult> Index()
+        public async Task<IActionResult> Index()
         {
-            var listProducts = await _productService.GetAllActiveAsync();
-            var viewModel = _mapper.Map<IEnumerable<ProductsViewModel>>(listProducts);
+            var products = await _productService.GetAllActiveAsync();
+            var productsViewModel = _mapper.Map<IEnumerable<ProductViewModel>>(products);
 
-            return View(viewModel);
+            return View(productsViewModel);
         }
 
-        // GET: Teste/Details/5
-        public ActionResult Details(int id)
+        public async Task<IActionResult> Details(int id)
         {
+            return await ReturnViewModelProductsById(id);
+        }
+
+        public IActionResult Create()
+        {
+            ViewData["Action"] = "Create";
+
             return View();
         }
 
-        // GET: Teste/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: Teste/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(ProductsViewModel productsViewModel)
+        public async Task<IActionResult> Create(ProductViewModel productViewModel)
         {
+            ViewData["Action"] = "Create";
+
+            if (!ModelState.IsValid) return View();
+
             try
             {
-                // TODO: Add insert logic here
+                var product = _mapper.Map<Product>(productViewModel);
+                await _productService.Create(product);
 
                 return RedirectToAction(nameof(Index));
             }
@@ -55,20 +60,25 @@ namespace VMRepresentacao.Web.Controllers
             }
         }
 
-        // GET: Teste/Edit/5
-        public ActionResult Edit(int id)
+        public async Task<IActionResult> Edit(int id)
         {
-            return View();
+            ViewData["Action"] = "Edit";
+
+            return await ReturnViewModelProductsById(id);
         }
 
-        // POST: Teste/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, ProductsViewModel productsViewModel)
+        public async Task<IActionResult> Edit(ProductViewModel productViewModel)
         {
+            ViewData["Action"] = "Edit";
+
+            if (!ModelState.IsValid) return View(productViewModel);
+
             try
             {
-                // TODO: Add update logic here
+                var product = _mapper.Map<Product>(productViewModel);
+                await _productService.Edit(product);
 
                 return RedirectToAction(nameof(Index));
             }
@@ -78,20 +88,19 @@ namespace VMRepresentacao.Web.Controllers
             }
         }
 
-        // GET: Teste/Delete/5
-        public ActionResult Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
-            return View();
+            return await ReturnViewModelProductsById(id);
         }
 
-        // POST: Teste/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, ProductsViewModel productsViewModel)
+        public async Task<IActionResult> Delete(int id, ProductViewModel productViewModel)
         {
             try
             {
-                // TODO: Add delete logic here
+                var product = _mapper.Map<Product>(productViewModel);
+                await _productService.Delete(product);
 
                 return RedirectToAction(nameof(Index));
             }
@@ -99,6 +108,14 @@ namespace VMRepresentacao.Web.Controllers
             {
                 return View();
             }
+        }
+
+        private async Task<IActionResult> ReturnViewModelProductsById(int id)
+        {
+            var product = await _productService.GetByIdAsync(id);
+            var productViewModel = _mapper.Map<ProductViewModel>(product);
+
+            return View(productViewModel);
         }
     }
 }

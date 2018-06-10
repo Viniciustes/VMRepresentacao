@@ -6,8 +6,6 @@ namespace VMRepresentacao.Infrastructure.Data.Repositories
 {
     public class CustomerRepository : Repository<Customer>, ICustomerRepository
     {
-        public CustomerRepository(Context context) : base(context)
-        {
-        }
+        public CustomerRepository(Context context) : base(context) { }
     }
 }
