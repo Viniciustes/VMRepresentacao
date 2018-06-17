@@ -10,16 +10,16 @@
 <div>
     <h4>Apagar Cliente</h4>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.NameViewModel)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.NameViewModel)
-        </dd>
-    </dl>
-    
     <form asp-action="Delete">
+        <input type="hidden" asp-for"IdViewModel" />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.NameViewModel)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.NameViewModel)
+            </dd>
+        </dl>
         <input type="submit" value="Apagar" class="btn btn-default" /> |
         <a asp-action="Index">Voltar</a>
     </form>
