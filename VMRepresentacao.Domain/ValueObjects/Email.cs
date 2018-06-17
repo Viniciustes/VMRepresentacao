@@ -6,6 +6,8 @@ namespace VMRepresentacao.Domain.ValueObjects
     public class Email
     {
         #region Constructors
+        private Email () { }
+
         public Email(string address)
         {
             Address = address;

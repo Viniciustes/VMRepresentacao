@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using VMRepresentacao.ApplicationService.Interfaces;
 using VMRepresentacao.Domain.Entities;
-using VMRepresentacao.Web.ViewModels;
+using VMRepresentacao.Web.ViewModels.Entities;
 
 namespace VMRepresentacao.Web.Controllers
 {
@@ -27,9 +27,9 @@ namespace VMRepresentacao.Web.Controllers
             return View(productsViewModel);
         }
 
-        public async Task<IActionResult> Details(int id)
+        public async Task<IActionResult> Details(int idViewModel)
         {
-            return await ReturnViewModelProductsById(id);
+            return await ReturnViewModelProductById(idViewModel);
         }
 
         public IActionResult Create()
@@ -60,11 +60,11 @@ namespace VMRepresentacao.Web.Controllers
             }
         }
 
-        public async Task<IActionResult> Edit(int id)
+        public async Task<IActionResult> Edit(int idViewModel)
         {
             ViewData["Action"] = "Edit";
 
-            return await ReturnViewModelProductsById(id);
+            return await ReturnViewModelProductById(idViewModel);
         }
 
         [HttpPost]
@@ -88,14 +88,14 @@ namespace VMRepresentacao.Web.Controllers
             }
         }
 
-        public async Task<IActionResult> Delete(int id)
+        public async Task<IActionResult> Delete(int idViewModel)
         {
-            return await ReturnViewModelProductsById(id);
+            return await ReturnViewModelProductById(idViewModel);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Delete(int id, ProductViewModel productViewModel)
+        public async Task<IActionResult> Delete(ProductViewModel productViewModel)
         {
             try
             {
@@ -110,9 +110,9 @@ namespace VMRepresentacao.Web.Controllers
             }
         }
 
-        private async Task<IActionResult> ReturnViewModelProductsById(int id)
+        private async Task<IActionResult> ReturnViewModelProductById(int idViewModel)
         {
-            var product = await _productService.GetByIdAsync(id);
+            var product = await _productService.GetByIdAsync(idViewModel);
             var productViewModel = _mapper.Map<ProductViewModel>(product);
 
             return View(productViewModel);

@@ -7,6 +7,8 @@ namespace VMRepresentacao.Domain.ValueObjects
     public class CPF
     {
         #region Constructors
+        private CPF() { }
+
         public CPF(string number)
         {
             Number = number;

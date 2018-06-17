@@ -17,12 +17,14 @@ namespace VMRepresentacao.Domain.Entities
             CNPJ = cNPJ;
             Address = address;
 
-            _telephones =  telephones;
+            // TODO: Remover comentario abaixo e inicialização do array
+            //_telephones =  telephones;
+            //_telephones.Add(new Telephone(61, "99999999", Enumerators.TypeOfTelephone.CellPhone));
         }
         #endregion
 
         #region Attributes
-        private readonly IList<Telephone> _telephones;
+        //private readonly IList<Telephone> _telephones;
 
         public string Name { get; private set; }
 
@@ -35,7 +37,7 @@ namespace VMRepresentacao.Domain.Entities
         public int AddressId { get; private set; }
         public virtual Address Address { get; private set; }
 
-        public IReadOnlyCollection<Telephone> Telephones => _telephones.ToArray();
+        public IReadOnlyCollection<Telephone> Telephones { get; private set; }
         #endregion
     }
 }

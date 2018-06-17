@@ -5,6 +5,6 @@
         Work,
         Home,
         Billing,
-        MailBox,
+        MailBox
     }
 }

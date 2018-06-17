@@ -4,7 +4,7 @@
     ViewData["Title"] = "Index";
 }
 
-<h2>Index</h2>
+<h2>Cliente</h2>
 
 <p>
     <a asp-action="Create">Cadastrar Cliente</a>
@@ -13,16 +13,16 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Name)
+                @Html.DisplayNameFor(model => model.NameViewModel)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Email)
+                @Html.DisplayNameFor(model => model.EmailViewModel)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.CPF)
+                @Html.DisplayNameFor(model => model.CPFViewModel)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.CNPJ)
+                @Html.DisplayNameFor(model => model.CNPJViewModel)
             </th>
             <th></th>
         </tr>
@@ -32,21 +32,21 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Name)
+                    @Html.DisplayFor(modelItem => item.NameViewModel)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Email)
+                    @Html.DisplayFor(modelItem => item.EmailViewModel)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.CPF)
+                    @Html.DisplayFor(modelItem => item.CPFViewModel)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.CNPJ)
+                    @Html.DisplayFor(modelItem => item.CNPJViewModel)
                 </td>
                 <td>
-                    @Html.ActionLink("Editar", "Edit", new { item.Id }) |
-                    @Html.ActionLink("Detalhar", "Details", new { item.Id }) |
-                    @Html.ActionLink("Apagar", "Delete", new { item.Id })
+                    @Html.ActionLink("Editar", "Edit", new { item.IdViewModel }) |
+                    @Html.ActionLink("Detalhar", "Details", new { item.IdViewModel }) |
+                    @Html.ActionLink("Apagar", "Delete", new { item.IdViewModel })
                 </td>
             </tr>
         }

@@ -7,6 +7,8 @@ namespace VMRepresentacao.Domain.ValueObjects
     public class ZipCode
     {
         #region Constructors
+        private ZipCode() { }
+
         public ZipCode(string number)
         {
             Number = number;

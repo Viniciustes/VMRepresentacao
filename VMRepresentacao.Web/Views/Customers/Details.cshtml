@@ -1,0 +1,24 @@
+﻿@model CustomerViewModel
+
+@{
+    ViewData["Title"] = "Detalhes";
+}
+
+<h2>Cliente</h2>
+
+<div>
+    <h4>Detalhes do cliente</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NameViewModel)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NameViewModel)
+        </dd>
+    </dl>
+</div>
+<div>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.IdViewModel }) |
+    <a asp-action="Index">Voltar</a>
+</div>

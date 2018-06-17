@@ -7,6 +7,8 @@ namespace VMRepresentacao.Domain.ValueObjects
     public class CNPJ
     {
         #region Constructors
+        private CNPJ() { }
+
         public CNPJ(string number)
         {
             Number = number;

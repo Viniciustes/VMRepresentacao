@@ -1,0 +1,42 @@
+﻿@model CustomerViewModel
+
+<div class="form-group">
+    <label asp-for="AddressViewModel.SuperscriptionViewModel" class="control-label"></label>
+    <input asp-for="AddressViewModel.SuperscriptionViewModel" class="form-control" />
+    <span asp-validation-for="AddressViewModel.SuperscriptionViewModel" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="AddressViewModel.ZipCodeViewModel" class="control-label"></label>
+    <input asp-for="AddressViewModel.ZipCodeViewModel" class="form-control" />
+    <span asp-validation-for="AddressViewModel.ZipCodeViewModel" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="AddressViewModel.StateViewModel" class="control-label"></label>
+    <input asp-for="AddressViewModel.StateViewModel" class="form-control" />
+    <span asp-validation-for="AddressViewModel.StateViewModel" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="AddressViewModel.CityViewModel" class="control-label"></label>
+    <input asp-for="AddressViewModel.CityViewModel" class="form-control" />
+    <span asp-validation-for="AddressViewModel.CityViewModel" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="AddressViewModel.NumberViewModel" class="control-label"></label>
+    <input asp-for="AddressViewModel.NumberViewModel" class="form-control" />
+    <span asp-validation-for="AddressViewModel.NumberViewModel" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="AddressViewModel.DistrictViewModel" class="control-label"></label>
+    <input asp-for="AddressViewModel.DistrictViewModel" class="form-control" />
+    <span asp-validation-for="AddressViewModel.DistrictViewModel" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="AddressViewModel.TypeOfAddressViewModel" class="control-label"></label>
+    @Html.DropDownListFor(model => model.AddressViewModel.TypeOfAddressViewModel, Html.GetEnumSelectList(typeof(TypeOfAddress)), new { @class = "form-control" })
+    <span asp-validation-for="AddressViewModel.TypeOfAddressViewModel" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="AddressViewModel.ReferenceViewModel" class="control-label"></label>
+    <input asp-for="AddressViewModel.ReferenceViewModel" class="form-control" />
+    <span asp-validation-for="AddressViewModel.ReferenceViewModel" class="text-danger"></span>
+</div>

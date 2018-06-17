@@ -13,13 +13,13 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Name)
+                @Html.DisplayNameFor(model => model.NameViewModel)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Price)
+                @Html.DisplayNameFor(model => model.PriceViewModel)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Description)
+                @Html.DisplayNameFor(model => model.DescriptionViewModel)
             </th>
             <th></th>
         </tr>
@@ -29,18 +29,18 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Name)
+                    @Html.DisplayFor(modelItem => item.NameViewModel)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Price)
+                    @Html.DisplayFor(modelItem => item.PriceViewModel)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Description)
+                    @Html.DisplayFor(modelItem => item.DescriptionViewModel)
                 </td>
                 <td>
-                    @Html.ActionLink("Editar", "Edit", new { item.Id }) |
-                    @Html.ActionLink("Detalhes", "Details", new { item.Id }) |
-                    @Html.ActionLink("Apagar", "Delete", new { item.Id })
+                    @Html.ActionLink("Editar", "Edit", new { item.IdViewModel }) |
+                    @Html.ActionLink("Detalhes", "Details", new { item.IdViewModel }) |
+                    @Html.ActionLink("Apagar", "Delete", new { item.IdViewModel })
                 </td>
             </tr>
         }

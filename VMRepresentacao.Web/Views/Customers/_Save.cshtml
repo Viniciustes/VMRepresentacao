@@ -1,34 +1,32 @@
 ﻿@model CustomerViewModel
 
-<h4>Cadastrar cliente</h4>
-<hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action=@ViewData["Action"]>
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control" />
-                <span asp-validation-for="Name" class="text-danger"></span>
+                <label asp-for="NameViewModel" class="control-label"></label>
+                <input asp-for="NameViewModel" class="form-control" />
+                <span asp-validation-for="NameViewModel" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Email" class="control-label"></label>
-                <input asp-for="Email" class="form-control" />
-                <span asp-validation-for="Email" class="text-danger"></span>
+                <label asp-for="EmailViewModel" class="control-label"></label>
+                <input asp-for="EmailViewModel" class="form-control" />
+                <span asp-validation-for="EmailViewModel" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="CPF" class="control-label"></label>
-                <input asp-for="CPF" class="form-control" />
-                <span asp-validation-for="CPF" class="text-danger"></span>
+                <label asp-for="CPFViewModel" class="control-label"></label>
+                <input asp-for="CPFViewModel" class="form-control" />
+                <span asp-validation-for="CPFViewModel" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="CNPJ" class="control-label"></label>
-                <input asp-for="CNPJ" class="form-control" />
-                <span asp-validation-for="CNPJ" class="text-danger"></span>
+                <label asp-for="CNPJViewModel" class="control-label"></label>
+                <input asp-for="CNPJViewModel" class="form-control" />
+                <span asp-validation-for="CNPJViewModel" class="text-danger"></span>
             </div>
-            @Html.Partial("_Address")
+            @Html.Partial("Address")
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Salvar" class="btn btn-default" />
             </div>
         </form>
     </div>

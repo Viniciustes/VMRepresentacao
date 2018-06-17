@@ -2,7 +2,7 @@
 
 namespace VMRepresentacao.Domain.Entities
 {
-    public class BaseEntity
+    public class BaseEntity 
     {
         public BaseEntity()
         {

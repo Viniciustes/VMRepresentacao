@@ -1,11 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using VMRepresentacao.Domain.Entities;
 using VMRepresentacao.Domain.Interfaces.Specifications;
 
 namespace VMRepresentacao.Domain.Interfaces.Repositories
 {
-    public interface IRepository<Entity> where Entity : BaseEntity
+    public interface IRepository<Entity> where Entity : class
     {
         Entity GetById(int id);
         Entity GetByIdAsNoTracking(int id);
